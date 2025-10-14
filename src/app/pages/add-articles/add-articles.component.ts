@@ -16,6 +16,7 @@ export class AddArticlesComponent {
   public title = '';
   public desc = '';
   public author = '';
+  public imgPath = '';
 
   constructor(private http : HttpClient) {}
 
@@ -25,11 +26,11 @@ export class AddArticlesComponent {
       "title" : this.title,
       "desc" : this.desc,
       "author" : this.author,
+      "imgPath" : this.imgPath,
     }
     this.http.post('http://localhost:3000/articles/save', articleData).subscribe({
       next: () => {
         alert("Article ajouté avec succès");
-
       }
     })
   }
