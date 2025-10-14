@@ -1,0 +1,18 @@
+<section>
+  @if (details) {
+    <h2>{{details.title}}</h2>
+    <p>
+      Auteur : {{details.author}}
+    </p>
+    <p>
+      Description : {{details.desc}}
+    </p>
+    <p>
+      ID : {{details.id}}
+    </p>
+  } @else if (details.articleID) {
+    <p>details avec l'ID {{details.articleID}} introuvable.</p>
+  } @else {
+    <p>Chargement des détails de l'details...</p>
+  }
+</section>

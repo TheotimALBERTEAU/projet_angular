@@ -1,0 +1,20 @@
+<section class="uk-section uk-section-default">
+  <div class="uk-container uk-height-viewport">
+
+    <h2 class="uk-text-bold uk-h1 uk-margin-remove-adjacent uk-margin-remove-top uk-text-center">Liste des articles</h2>
+
+        <div>
+          <button (click)="onClickArticlesList()" class="uk-button uk-width-1-1 uk-card-hover">Afficher les articles</button>
+          <button (click)="onClickAddArticles()" class="uk-button uk-width-1-1 uk-card-hover">Ajouter ou modifier un article</button>
+
+          @for (article of articles; track article) {
+            <div class="uk-card uk-card-hover uk-card-body" (click)="onClickGoDetails(article.id)">
+              <h3>Article : </h3>
+              <p>{{ article.title }}</p>
+              <img src="{{article.imgPath}}" alt="image article" class="uk-background-cover">
+            </div>
+          }
+        </div>
+
+      </div>
+</section>
