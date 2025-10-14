@@ -10,7 +10,7 @@
           @for (article of articles; track article) {
             <div class="uk-card uk-card-hover uk-card-body" (click)="onClickGoDetails(article.id)">
               <h3>Article : </h3>
-              <p>{{ article.title }}</p>
+              <p>{{ article.title }} {{article.id}}</p>
               <img src="{{article.imgPath}}" alt="image article" class="uk-background-cover uk-align-center">
             </div>
           }

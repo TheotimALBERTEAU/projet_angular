@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpClient, HttpClientModule, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-add-articles',
@@ -22,7 +22,7 @@ export class AddArticlesComponent {
 
   sendFormData() {
     const articleData = {
-      "ID" : this.ID,
+      "id" : this.ID,
       "title" : this.title,
       "desc" : this.desc,
       "author" : this.author,
