@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ArticlesDetailsServiceService} from '../../services/articles-details-service.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-articles-details',
@@ -10,18 +10,19 @@ import {HttpClientModule} from '@angular/common/http';
   styleUrl: './articles-details.component.scss'
 })
 export class ArticlesDetailsComponent {
-  constructor(private activatedRoute: ActivatedRoute,
-              private articlesDetailsService: ArticlesDetailsServiceService) {
-  }
-
   public details: any = []
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private articlesDetailsService: ArticlesDetailsServiceService,
+              private http : HttpClient) {
+  }
 
   ngOnInit() {
     const articleID = this.activatedRoute.snapshot.paramMap.get('id',);
     this.articlesDetailsService.getDetails().subscribe({
       next: data => {
         if (data.code == "200" && data.data && articleID) {
-          this.details = data.data.find((article : any) => article.id.toString() === articleID);
+          this.details = data.data.find((article: any) => article.id.toString() === articleID);
         }
         if (!this.details) {
           alert(`No details found with id ${articleID}`);
@@ -32,4 +33,13 @@ export class ArticlesDetailsComponent {
       }
     })
   }
+
+  public onClickDeleteArticle(id: any) {
+    this.http.delete(`http://localhost:3000/articles/${id}`).subscribe({
+      next: data => {
+        alert(`Article effacé avec succès`);
+        window.open("http://localhost:4200/ListeArticles", "_self");
+      }
+    })
+}
 }

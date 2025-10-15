@@ -10,6 +10,7 @@
     <p>
       ID : {{details.id}}
     </p>
+    <button (click)="onClickDeleteArticle(details.id)" class="uk-button uk-width-1-1 uk-card-hover">Delete Article</button>
   } @else if (details.articleID) {
     <p>details avec l'ID {{details.articleID}} introuvable.</p>
   } @else {

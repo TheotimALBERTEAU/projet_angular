@@ -32,4 +32,8 @@ export class ListeArticlesComponent {
   public onClickAddArticles() {
     window.open("http://localhost:4200/AddArticles", "_self");
   }
+
+  public onClickModifyArticle() {
+    window.open("http://localhost:4200/ModifyArticle", "_self");
+  }
 }
