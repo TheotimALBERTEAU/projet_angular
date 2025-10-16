@@ -4,8 +4,8 @@
     <h2 class="uk-text-bold uk-h1 uk-margin-remove-adjacent uk-margin-remove-top uk-text-center">Liste des articles</h2>
 
         <div>
-          <button (click)="onClickArticlesList()" class="uk-button uk-width-1-1 uk-card-hover">Afficher les articles</button>
-          <button (click)="onClickAddArticles()" class="uk-button uk-width-1-1 uk-card-hover">Ajouter un article</button>
+          <button (click)="onClickArticlesList()" class="uk-button uk-width-1-1 uk-card-hover uk-margin-small-bottom">Afficher les articles</button>
+          <button (click)="onClickAddArticles()" class="uk-button uk-width-1-1 uk-card-hover uk-margin-small-bottom">Ajouter un article</button>
           <button (click)="onClickModifyArticle()" class="uk-button uk-width-1-1 uk-card-hover">Modifier  un article</button>
 
           @for (article of articles; track article) {

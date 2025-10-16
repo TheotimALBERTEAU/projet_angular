@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {ArticlesListServiceService} from '../../services/articles-list-service.service';
 import {HttpClientModule} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {LoginServicesService} from '../../services/login-services.service';
 
 @Component({
   selector: 'app-liste-articles',
@@ -11,18 +13,22 @@ import {HttpClientModule} from '@angular/common/http';
 })
 export class ListeArticlesComponent {
 
-  constructor(private articleService : ArticlesListServiceService) {
+  constructor(private articleService : ArticlesListServiceService,
+              private loginService : LoginServicesService) {
   }
 
   public articles : any[] = []
   public onClickArticlesList() {
-    this.articleService.getArticles().subscribe({
-      next: data => {
-        if (data.code == "200") {
-          this.articles = data.data
+    alert(this.loginService.login)
+    if (this.loginService.login == true) {
+      this.articleService.getArticles().subscribe({
+        next: data => {
+          if (data.code == "200") {
+            this.articles = data.data
+          }
         }
-      }
-    })
+      })
+    }
   }
 
   public onClickGoDetails(id : number) {

@@ -1,4 +1,4 @@
-import {Component, NgModule} from '@angular/core';
+import {Component} from '@angular/core';
 import {ArticlesListServiceService} from '../../services/articles-list-service.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
@@ -24,7 +24,7 @@ export class ModifyArticleComponent {
 
   public articles : any[] = []
 
-  public selectedArticle: any = false;
+  public selectedArticle : any = {};
 
   ngOnInit() {
     this.articleService.getArticles().subscribe({
@@ -59,10 +59,6 @@ export class ModifyArticleComponent {
 
     if (this.author !== '') {
       articleData["author"] = this.author;
-    }
-
-    if (this.imgPath !== '') {
-      articleData["imgPath"] = this.imgPath;
     }
 
     this.http.post('http://localhost:3000/articles/save', articleData).subscribe({

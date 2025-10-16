@@ -1,6 +1,22 @@
-<header>
-  <h2>Gestion des Articles</h2>
-  <button class="uk-button uk-button-primary" (click)="onClickGoList()">Aller a la liste des objets</button>
+<header class="uk-background-secondary uk-box-shadow-small">
+  <div class="uk-container uk-container-expand">
+    <nav class="uk-navbar uk-navbar-container uk-navbar-transparent" uk-navbar>
+
+      <div class="uk-navbar-left">
+        <h2 (click)="onClickGoList()" class="uk-navbar-item uk-text-bold uk-text-large uk-light uk-margin-remove">Gestion des articles</h2>
+      </div>
+
+      <div class="uk-navbar-right">
+        <button
+          (click)="onClickLogin()"
+          class="uk-button uk-button-default uk-light uk-text-bold uk-margin-small-top uk-margin-small-bottom">
+          LOGIN
+        </button>
+        <button (click)="onClickLogout()">Log Out</button>
+      </div>
+
+    </nav>
+  </div>
 </header>
 
 <router-outlet/>
