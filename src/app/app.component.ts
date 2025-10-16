@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {LoginServicesService} from './services/login-services.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet,
+  HttpClientModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -21,6 +25,6 @@ export class AppComponent {
   }
 
   public onClickLogout() {
-
+    this.loginService.logout();
   }
 }

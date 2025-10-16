@@ -26,7 +26,6 @@ export class LoginServicesService {
           this.router.navigate(['/ListeArticles']);
           localStorage.setItem("isLoggedIn", "true");
           this.login = true;
-          alert(this.login);
         } else {
           alert("Email/Password Invalid");
         }
@@ -37,5 +36,7 @@ export class LoginServicesService {
   public logout() {
     localStorage.removeItem('isLoggedIn');
     this.login = false;
+    window.location.reload();
+    alert("Logout successfull");
   }
 }

@@ -19,7 +19,6 @@ export class ListeArticlesComponent {
 
   public articles : any[] = []
   public onClickArticlesList() {
-    alert(this.loginService.login)
     if (this.loginService.login == true) {
       this.articleService.getArticles().subscribe({
         next: data => {
@@ -28,18 +27,32 @@ export class ListeArticlesComponent {
           }
         }
       })
+    } else {
+      alert("You are not logged in.");
     }
   }
 
   public onClickGoDetails(id : number) {
-    window.open(`http://localhost:4200/ListeArticles/${id}`, "_self")
+    if (this.loginService.login == true) {
+      window.open(`http://localhost:4200/ListeArticles/${id}`, "_self")
+    } else {
+      alert("You are not logged in.");
+    }
   }
 
   public onClickAddArticles() {
-    window.open("http://localhost:4200/AddArticles", "_self");
+    if (this.loginService.login == true) {
+      window.open("http://localhost:4200/AddArticles", "_self");
+    } else {
+      alert("You are not logged in.");
+    }
   }
 
   public onClickModifyArticle() {
-    window.open("http://localhost:4200/ModifyArticle", "_self");
+    if (this.loginService.login == true) {
+      window.open("http://localhost:4200/ModifyArticle", "_self");
+    } else {
+      alert("You are not logged in.");
+    }
   }
 }

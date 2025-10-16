@@ -7,12 +7,22 @@
       </div>
 
       <div class="uk-navbar-right">
+
         <button
           (click)="onClickLogin()"
           class="uk-button uk-button-default uk-light uk-text-bold uk-margin-small-top uk-margin-small-bottom">
           LOGIN
         </button>
-        <button (click)="onClickLogout()">Log Out</button>
+
+        <button (click)="onClickLogout()"
+                class="uk-button uk-button-default uk-light uk-text-bold uk-margin-small-top uk-margin-small-bottom">
+          Log Out
+        </button>
+
+        <div class="uk-cover-container profile-icon">
+          <img src="/profil.png" alt="image_profil" uk-cover>
+        </div>
+
       </div>
 
     </nav>
