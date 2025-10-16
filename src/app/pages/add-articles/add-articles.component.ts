@@ -12,7 +12,6 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
   styleUrl: './add-articles.component.scss'
 })
 export class AddArticlesComponent {
-  public id = '';
   public title = '';
   public desc = '';
   public author = '';
@@ -22,7 +21,6 @@ export class AddArticlesComponent {
 
   sendFormData() {
     const articleData = {
-      "id" : this.id,
       "title" : this.title,
       "desc" : this.desc,
       "author" : this.author,

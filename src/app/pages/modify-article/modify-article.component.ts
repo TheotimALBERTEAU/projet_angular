@@ -13,11 +13,10 @@ import {FormsModule} from '@angular/forms';
   styleUrl: './modify-article.component.scss'
 })
 export class ModifyArticleComponent {
-
-  public title = '';
-  public desc = '';
-  public author = '';
-  public imgPath = '';
+  public title = "";
+  public desc = "";
+  public author = "";
+  public imgPath = "";
 
   constructor(private articleService : ArticlesListServiceService,
               private http : HttpClient,) {
@@ -37,23 +36,41 @@ export class ModifyArticleComponent {
     })
   }
 
-  public selectArticle(id : any): void {
-    this.selectedArticle = id;
+  public selectArticle(article : any): void {
+    this.selectedArticle = article;
   }
 
   sendFormData() {
-    const articleData = {
-      "id" : this.selectedArticle,
-      "title" : this.title,
-      "desc" : this.desc,
-      "author" : this.author,
-      "imgPath" : this.imgPath,
+    const articleData : any = {
+      "id" : this.selectedArticle.id,
+      "title" : this.selectedArticle.title,
+      "desc" : this.selectedArticle.desc,
+      "author" : this.selectedArticle.author,
+      "imgPath" : this.selectedArticle.imgPath,
     }
+
+    if (this.title !== '') {
+      articleData["title"] = this.title;
+    }
+
+    if (this.desc !== '') {
+      articleData["desc"] = this.desc;
+    }
+
+    if (this.author !== '') {
+      articleData["author"] = this.author;
+    }
+
+    if (this.imgPath !== '') {
+      articleData["imgPath"] = this.imgPath;
+    }
+
     this.http.post('http://localhost:3000/articles/save', articleData).subscribe({
       next: () => {
         alert("Article modifié avec succès");
       }
     })
-    this.selectedArticle = false;
+    window.location.reload();
+
   }
 }

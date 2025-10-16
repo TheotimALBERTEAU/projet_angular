@@ -5,9 +5,9 @@
 
     <div>
       @for (article of articles; track article) {
-        <div class="uk-card uk-card-hover uk-card-body" (click)="selectArticle(article.id)">
+        <div class="uk-card uk-card-hover uk-card-body" (click)="selectArticle(article)">
           <p>{{ article.title }}</p>
-          @if (article.id == selectedArticle) {
+          @if (article.id == selectedArticle.id) {
             <input class ="uk-input" [(ngModel)]="title" type="text" placeholder="title">
             <input class ="uk-input" [(ngModel)]="desc" type="text" placeholder="desc">
             <input class ="uk-input" [(ngModel)]="author" type="text" placeholder="author">
