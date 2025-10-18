@@ -3,25 +3,46 @@
     <nav class="uk-navbar uk-navbar-container uk-navbar-transparent" uk-navbar>
 
       <div class="uk-navbar-left">
-        <h2 (click)="onClickGoList()" class="uk-navbar-item uk-text-bold uk-text-large uk-light uk-margin-remove">Gestion des articles</h2>
+        <h2 (click)="onClickGoList()" class="uk-navbar-item uk-text-bold uk-text-large uk-light uk-margin-remove">
+          Gestion des articles</h2>
       </div>
 
       <div class="uk-navbar-right">
+        @if (!loginService.login) {
+          <button
+            (click)="onClickLogin()"
+            class="uk-button uk-button-default uk-light uk-text-bold uk-margin-small-top uk-margin-small-bottom">
+            LOGIN
+          </button>
+        }
 
-        <button
-          (click)="onClickLogin()"
-          class="uk-button uk-button-default uk-light uk-text-bold uk-margin-small-top uk-margin-small-bottom">
-          LOGIN
-        </button>
+        @if (loginService.login) {
+          <button (click)="onClickLogout()"
+                  class="uk-button uk-button-default uk-light uk-text-bold uk-margin-small-top uk-margin-small-bottom">
+            Log Out
+          </button>
+        }
 
-        <button (click)="onClickLogout()"
-                class="uk-button uk-button-default uk-light uk-text-bold uk-margin-small-top uk-margin-small-bottom">
-          Log Out
-        </button>
+        @if (loginService.login) {
+          <div class="uk-inline uk-margin-small-right">
+            <div class="uk-cover-container profile-icon uk-border-circle" style="cursor: pointer;"
+                 uk-toggle="target: #dropdown-profil; mode: click">
+              <img alt="image_profil" src="/profil.png" uk-cover>
+            </div>
+            <div id="dropdown-profil" uk-dropdown="pos: bottom-right; offset: 10">
+              <ul class="uk-nav uk-dropdown-nav">
+                <li>
+                  <a (click)="onClickLogout()">
+                    <span uk-icon="icon: sign-out"></span> Log Out
+                  </a>
+                </li>
+                <li><a><span uk-icon="icon: user"></span> Mon Profil</a></li>
+                <li><a href="#"><span uk-icon="icon: settings"></span> Paramètres</a></li>
+              </ul>
+            </div>
+          </div>
+        }
 
-        <div class="uk-cover-container profile-icon">
-          <img src="/profil.png" alt="image_profil" uk-cover>
-        </div>
 
       </div>
 

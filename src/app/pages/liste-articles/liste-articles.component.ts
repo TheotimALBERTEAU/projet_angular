@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ArticlesListServiceService} from '../../services/articles-list-service.service';
 import {HttpClientModule} from '@angular/common/http';
-import {Router} from '@angular/router';
 import {LoginServicesService} from '../../services/login-services.service';
 
 @Component({
@@ -13,17 +12,20 @@ import {LoginServicesService} from '../../services/login-services.service';
 })
 export class ListeArticlesComponent {
 
-  constructor(private articleService : ArticlesListServiceService,
-              private loginService : LoginServicesService) {
+  public articles: any[] = []
+  public ShowArticles: boolean = false;
+
+  constructor(private articleService: ArticlesListServiceService,
+              private loginService: LoginServicesService) {
   }
 
-  public articles : any[] = []
   public onClickArticlesList() {
-    if (this.loginService.login == true) {
+    if (this.loginService.login) {
       this.articleService.getArticles().subscribe({
         next: data => {
           if (data.code == "200") {
-            this.articles = data.data
+            this.articles = data.data;
+            this.ShowArticles = true;
           }
         }
       })
@@ -32,8 +34,8 @@ export class ListeArticlesComponent {
     }
   }
 
-  public onClickGoDetails(id : number) {
-    if (this.loginService.login == true) {
+  public onClickGoDetails(id: number) {
+    if (this.loginService.login) {
       window.open(`http://localhost:4200/ListeArticles/${id}`, "_self")
     } else {
       alert("You are not logged in.");
@@ -41,7 +43,7 @@ export class ListeArticlesComponent {
   }
 
   public onClickAddArticles() {
-    if (this.loginService.login == true) {
+    if (this.loginService.login) {
       window.open("http://localhost:4200/AddArticles", "_self");
     } else {
       alert("You are not logged in.");
@@ -49,7 +51,7 @@ export class ListeArticlesComponent {
   }
 
   public onClickModifyArticle() {
-    if (this.loginService.login == true) {
+    if (this.loginService.login) {
       window.open("http://localhost:4200/ModifyArticle", "_self");
     } else {
       alert("You are not logged in.");

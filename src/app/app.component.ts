@@ -13,7 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  constructor(private loginService : LoginServicesService) { }
+  constructor(public loginService : LoginServicesService) { }
   title = 'projet_angular';
 
   public onClickGoList() {
@@ -27,4 +27,6 @@ export class AppComponent {
   public onClickLogout() {
     this.loginService.logout();
   }
+
+  protected readonly localStorage = localStorage;
 }

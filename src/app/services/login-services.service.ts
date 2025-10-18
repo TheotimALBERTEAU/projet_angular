@@ -23,7 +23,7 @@ export class LoginServicesService {
       next: (response: any) => {
         if (response.code == "200") {
           alert("Login successfull");
-          this.router.navigate(['/ListeArticles']);
+          window.open("http://localhost:4200/ListeArticles", "_self");
           localStorage.setItem("isLoggedIn", "true");
           this.login = true;
         } else {
