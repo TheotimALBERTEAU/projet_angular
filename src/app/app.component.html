@@ -17,15 +17,8 @@
         }
 
         @if (loginService.login) {
-          <button (click)="onClickLogout()"
-                  class="uk-button uk-button-default uk-light uk-text-bold uk-margin-small-top uk-margin-small-bottom">
-            Log Out
-          </button>
-        }
-
-        @if (loginService.login) {
           <div class="uk-inline uk-margin-small-right">
-            <div class="uk-cover-container profile-icon uk-border-circle" style="cursor: pointer;"
+            <div class="uk-cover-container profile-icon uk-border-circle"
                  uk-toggle="target: #dropdown-profil; mode: click">
               <img alt="image_profil" src="/profil.png" uk-cover>
             </div>
@@ -36,8 +29,12 @@
                     <span uk-icon="icon: sign-out"></span> Log Out
                   </a>
                 </li>
-                <li><a><span uk-icon="icon: user"></span> Mon Profil</a></li>
-                <li><a href="#"><span uk-icon="icon: settings"></span> Paramètres</a></li>
+                 <!--<li><a><span uk-icon="icon: user"></span> Mon Profil</a></li>-->
+                <li>
+                  <a (click)="onClickGoSettings()">
+                    <span uk-icon="icon: settings"></span> Paramètres
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

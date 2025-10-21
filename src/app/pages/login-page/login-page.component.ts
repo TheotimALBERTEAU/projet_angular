@@ -17,7 +17,7 @@ export class LoginPageComponent {
   public password = '';
 
   constructor(private http : HttpClient,
-              private loginService : LoginServicesService) {}
+              public loginService : LoginServicesService) {}
 
   public onClickLogin() {
     this.loginService.sendLogin(this.email, this.password)
@@ -26,5 +26,4 @@ export class LoginPageComponent {
   public onClickLogout() {
     this.loginService.logout()
   }
-
 }

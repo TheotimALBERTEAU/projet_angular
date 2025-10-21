@@ -29,4 +29,8 @@ export class AppComponent {
   }
 
   protected readonly localStorage = localStorage;
+
+  public onClickGoSettings() {
+    window.open('http://localhost:4200/Settings', '_self');
+  }
 }
