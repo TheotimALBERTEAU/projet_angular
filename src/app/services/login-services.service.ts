@@ -12,13 +12,17 @@ export class LoginServicesService {
     this.login = localStorage.getItem('isLoggedIn') === 'true';
   }
 
-  public login = false
+  public login = false;
 
   public sendLogin(email : string, password : string) {
     const infos = {
       "email" : email,
       "password" : password,
     }
+
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userPassword", password);
+
     this.http.post('http://localhost:3000/login', infos).subscribe({
       next: (response: any) => {
         if (response.code == "200") {
@@ -36,21 +40,26 @@ export class LoginServicesService {
   public logout() {
     localStorage.removeItem('isLoggedIn');
     this.login = false;
-    window.location.reload();
+    window.open("http://localhost:4200/ListeArticles", "_self");
     alert("Logout successfull");
   }
 
-  public resetPassword(email: string) {
-    const emailforreset = {
-      "email" : email,
+  public resetPassword() {
+    const email = {
+      "email" : localStorage.getItem("userEmail"),
     }
-    this.http.post('http://localhost:3000/reset-password', emailforreset).subscribe({
-      next: (response: any) => {
-        if (response.code == "200") {
-          alert(response.message + "New password : " + response.data)
+    const confirmed = confirm("Voulez-vous vraiment réinitialiser votre mot de passe ?")
+    if (confirmed) {
+      this.http.post('http://localhost:3000/reset-password', email).subscribe({
+        next: (response: any) => {
+          if (response.code == "200") {
+            alert(response.message + "New password : " + response.data);
+            navigator.clipboard.writeText(response.data);
+          }
+          this.logout();
+          window.open("http://localhost:4200/Login", "_self");
         }
-        window.open("http://localhost:4200/Login", "_self");
-      }
-    })
+      })
+    }
   }
 }

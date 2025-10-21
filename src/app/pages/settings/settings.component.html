@@ -1,1 +1,20 @@
-<button (click)="onClickResetPassword()">Reset Password</button>
+<section class="uk-section-default">
+
+  <div class="uk-section-default uk-padding-small">
+    <h3>Email : </h3>
+    <div class="uk-inline uk-width-1-1">
+      <input type="text" [value]="localStorage.getItem('userEmail')" class="uk-input" readonly>
+      <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
+    </div>
+  </div>
+
+  <div class="uk-section-default uk-padding-small">
+    <h3>Password : </h3>
+    <div class="uk-inline uk-width-1-1 uk-margin-small-bottom">
+      <input [type]="inputType" [value]="localStorage.getItem('userPassword')" class="uk-input" readonly>
+      <a (click)="togglePasswordVisibility()" class="uk-form-icon uk-form-icon-flip" [attr.uk-icon]="inputType === 'password' ? 'icon: eye-slash' : 'icon: eye'"></a>
+    </div>
+    <button (click)="onClickResetPassword()" class="uk-button uk-button-default uk-width-1-1">Reset Password</button>
+  </div>
+
+</section>

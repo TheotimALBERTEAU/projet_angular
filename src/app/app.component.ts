@@ -24,6 +24,10 @@ export class AppComponent {
     window.open('http://localhost:4200/Login', '_self');
   }
 
+  public onClickSignup() {
+    window.open('http://localhost:4200/Signup', '_self');
+  }
+
   public onClickLogout() {
     this.loginService.logout();
   }
