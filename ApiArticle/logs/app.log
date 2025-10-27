@@ -238,3 +238,15 @@
 2025-10-21T16:37:31.791Z info: Code : 200 - Message : La liste des articles a été récupérée avec succès !
 2025-10-21T16:37:37.547Z info: Code : 200 - Message : La liste des articles a été récupérée avec succès !
 2025-10-21T16:37:41.231Z info: Code : 200 - Message : Informations utilisateur récupérées avec succès.
+2025-10-27T16:39:35.866Z info: The sended user request : {"email":"theotim.alberteau@supdevinci-edu.fr","password":"test"}
+2025-10-27T16:39:35.871Z info: Code : 200 - Message : Vous êtes connecté(e)
+2025-10-27T16:39:37.887Z info: Code : 200 - Message : La liste des articles a été récupérée avec succès !
+2025-10-27T16:39:39.832Z info: Code : 200 - Message : La liste des articles a été récupérée avec succès !
+2025-10-27T16:40:35.846Z info: Code : 200 - Message : La liste des articles a été récupérée avec succès !
+2025-10-27T16:40:44.885Z info: Code : 200 - Message : Informations utilisateur récupérées avec succès.
+2025-10-27T16:40:52.947Z info: Code : 200 - Message : La liste des articles a été récupérée avec succès !
+2025-10-27T16:42:06.497Z info: The sended user request : {"email":"theotim.alberteau@supdevinci-edu.fr","password":"test"}
+2025-10-27T16:42:06.498Z info: Code : 200 - Message : Vous êtes connecté(e)
+2025-10-27T16:42:08.549Z info: Code : 200 - Message : La liste des articles a été récupérée avec succès !
+2025-10-27T16:48:15.733Z info: The sended user request : {"email":"theotim.alberteau@supdevinci-edu.fr","password":"test"}
+2025-10-27T16:48:15.734Z info: Code : 200 - Message : Vous êtes connecté(e)
