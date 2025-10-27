@@ -30,8 +30,22 @@ export class LoginServicesService {
           window.open("http://localhost:4200/ListeArticles", "_self");
           localStorage.setItem("isLoggedIn", "true");
           this.login = true;
+          localStorage.setItem("token", response.data);
         } else {
           alert("Email/Password Invalid");
+        }
+      }
+    })
+  }
+
+  public sendSignup(infos : any) {
+    this.http.post('http://localhost:3000/signup', infos).subscribe({
+      next: (response: any) => {
+        if (response.code == "200") {
+          alert("Signup successfull");
+          window.open("http://localhost:4200/Login", "_self");
+        } else {
+          alert(response.message);
         }
       }
     })
@@ -60,6 +74,18 @@ export class LoginServicesService {
           window.open("http://localhost:4200/Login", "_self");
         }
       })
+    }
+  }
+
+  public passwordInputType: 'password' | 'text' = 'password';
+
+  public confirmInputType: 'password' | 'text' = 'password';
+
+  public togglePasswordVisibility(field: 'password' | 'confirm'): void {
+    if (field === 'password') {
+      this.passwordInputType = this.passwordInputType === 'password' ? 'text' : 'password';
+    } else if (field === 'confirm') {
+      this.confirmInputType = this.confirmInputType === 'password' ? 'text' : 'password';
     }
   }
 }

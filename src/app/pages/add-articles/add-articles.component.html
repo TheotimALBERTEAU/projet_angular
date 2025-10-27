@@ -1,12 +1,53 @@
-<div class="uk-container">
-  <h2>Ajouter un article</h2>
-  <div class="uk-container uk-margin">
-    <input class ="uk-input" [(ngModel)]="title" type="text" placeholder="title">
-    <input class ="uk-input" [(ngModel)]="desc" type="text" placeholder="desc">
-    <input class ="uk-input" [(ngModel)]="author" type="text" placeholder="author">
-    <input class ="uk-input" [(ngModel)]="imgPath" type="text" placeholder="Lien google de l'image">
+<div class="uk-container uk-margin-large-top uk-margin-large-bottom uk-height-viewport">
+
+  <h2 class="uk-heading-line uk-text-center">
+    <span>Ajouter un article</span>
+  </h2>
+
+  <div class="uk-card uk-card-default uk-card-body uk-margin-medium-top uk-box-shadow-large">
+
+    <div class="uk-grid-small" uk-grid>
+
+      <div class="uk-width-1-1">
+        <label class="uk-form-label" for="form-title">Titre</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="form-title" [(ngModel)]="title" type="text" placeholder="Entrez le titre de l'article">
+        </div>
+      </div>
+
+      <div class="uk-width-1-1 uk-margin-small-top">
+        <label class="uk-form-label" for="form-desc">Description</label>
+        <div class="uk-form-controls">
+          <textarea class="uk-textarea" id="form-desc" [(ngModel)]="desc" rows="5" placeholder="Saisissez la description de l'article"></textarea>
+        </div>
+      </div>
+
+      <div class="uk-width-1-1 uk-margin-small-top">
+        <div class="uk-grid-small uk-child-width-1-2@s" uk-grid>
+
+          <div>
+            <label class="uk-form-label" for="form-author">Auteur</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-author" [(ngModel)]="author" type="text" placeholder="Nom de l'auteur">
+            </div>
+          </div>
+
+          <div>
+            <label class="uk-form-label" for="form-img">Lien de l'image</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-img" [(ngModel)]="imgPath" type="text" placeholder="Lien google de l'image">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
-  <button class="uk-button uk-button-primary uk-width-1-1" (click)="sendFormData()">Envoyer les données</button>
 
-
+  <div class="uk-margin-large-top uk-text-center">
+    <button class="uk-button uk-button-primary" (click)="sendFormData()">
+      <span uk-icon="icon: push"></span> Envoyer les données
+    </button>
+  </div>
 </div>

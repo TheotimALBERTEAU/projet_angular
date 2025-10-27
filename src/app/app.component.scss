@@ -1,5 +1,22 @@
-.profile-icon {
+.profile-icon-container {
   height: 70px;
   width: 70px;
-  margin: 1vh 0;
+}
+
+.header-auth-button {
+
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  background-color: transparent;
+  padding: 5px 15px;
+  line-height: 1.2;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: white;
+    background-color: white;
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
 }

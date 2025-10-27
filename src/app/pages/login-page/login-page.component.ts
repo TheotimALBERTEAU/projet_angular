@@ -22,8 +22,4 @@ export class LoginPageComponent {
   public onClickLogin() {
     this.loginService.sendLogin(this.email, this.password)
   }
-
-  public onClickLogout() {
-    this.loginService.logout()
-  }
 }

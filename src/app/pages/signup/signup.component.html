@@ -1,1 +1,82 @@
-<p>signup works!</p>
+<div class="uk-container uk-margin-large-top uk-width-large@s uk-align-center uk-height-viewport">
+
+  <h2 class="uk-text-center uk-margin-medium-bottom">Inscription</h2>
+
+  <div class="uk-card uk-card-default uk-card-body uk-box-shadow-medium">
+
+    <div class="uk-grid-small" uk-grid>
+
+      <div class="uk-width-1-1 uk-margin-small-bottom">
+        <h4 class="uk-text-bold uk-text-muted uk-margin-remove-bottom">Informations de Connexion</h4>
+        <hr class="uk-margin-small-top uk-margin-remove-bottom">
+      </div>
+
+      <div class="uk-width-1-1 uk-margin-small-bottom">
+        <label class="uk-form-label" for="form-signup-email">Email</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="form-signup-email" [(ngModel)]="email" type="email" placeholder="email">
+        </div>
+      </div>
+
+      <div class="uk-width-1-1 uk-margin-small-bottom">
+        <label class="uk-form-label" for="form-signup-password">Mot de passe</label>
+        <div class="uk-form-controls uk-inline uk-width-1-1">
+          <input class="uk-input" id="form-signup-password" [(ngModel)]="password" [type]="loginService.passwordInputType" placeholder="password">
+          <a (click)="loginService.togglePasswordVisibility('password')" class="uk-form-icon uk-form-icon-flip" style="cursor: pointer;" [attr.uk-icon]="loginService.passwordInputType === 'password' ? 'icon: eye-slash' : 'icon: eye'"></a>
+        </div>
+      </div>
+
+      <div class="uk-width-1-1 uk-margin-medium-bottom">
+        <label class="uk-form-label" for="form-signup-confirm">Confirmer le mot de passe</label>
+        <div class="uk-form-controls uk-inline uk-width-1-1">
+          <input class="uk-input" id="form-signup-confirm" [(ngModel)]="passwordConfirm" [type]="loginService.confirmInputType" placeholder="Confirm password">
+          <a (click)="loginService.togglePasswordVisibility('confirm')" class="uk-form-icon uk-form-icon-flip" style="cursor: pointer;" [attr.uk-icon]="loginService.confirmInputType === 'password' ? 'icon: eye-slash' : 'icon: eye'"></a>
+        </div>
+      </div>
+
+      <div class="uk-width-1-1 uk-margin-small-bottom">
+        <h4 class="uk-text-bold uk-text-muted uk-margin-remove-bottom">Informations Personnelles</h4>
+        <hr class="uk-margin-small-top uk-margin-remove-bottom">
+      </div>
+
+      <div class="uk-width-1-1 uk-margin-small-bottom">
+        <label class="uk-form-label" for="form-signup-pseudo">Pseudo</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="form-signup-pseudo" [(ngModel)]="pseudo" type="text" placeholder="pseudo">
+        </div>
+      </div>
+
+      <div class="uk-width-1-1">
+        <div class="uk-grid-small uk-child-width-1-2@s" uk-grid>
+          <div>
+            <label class="uk-form-label" for="form-signup-citycode">Code Postal</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-signup-citycode" [(ngModel)]="cityCode" type="text" placeholder="Code postal">
+            </div>
+          </div>
+          <div>
+            <label class="uk-form-label" for="form-signup-city">Ville</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-signup-city" [(ngModel)]="city" type="text" placeholder="Ville">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uk-width-1-1 uk-margin-small-top">
+        <label class="uk-form-label" for="form-signup-phone">Numéro de Téléphone</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="form-signup-phone" [(ngModel)]="phone" type="tel" placeholder="Numéro de Téléphone">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="uk-margin-medium-top">
+    <button class="uk-button uk-button-primary uk-width-1-1" (click)="onClickSignup()">
+      <span uk-icon="icon: chevron-right"></span> Inscription
+    </button>
+  </div>
+
+</div>

@@ -1,52 +1,39 @@
-<header class="uk-background-secondary uk-box-shadow-small">
+<header class="uk-background-secondary uk-box-shadow-small header-custom-height">
   <div class="uk-container uk-container-expand">
     <nav class="uk-navbar uk-navbar-container uk-navbar-transparent" uk-navbar>
 
       <div class="uk-navbar-left">
-        <h2 (click)="onClickGoList()" class="uk-navbar-item uk-text-bold uk-text-large uk-light uk-margin-remove">
-          Gestion des articles</h2>
+        <h2 (click)="onClickGoList()" class="uk-navbar-item uk-text-bold uk-text-large uk-light uk-margin-remove" style="cursor: pointer;">
+          Gestion des articles
+        </h2>
       </div>
 
       <div class="uk-navbar-right">
         @if (!loginService.login) {
-          <button
-            (click)="onClickLogin()"
-            class="uk-button uk-button-default uk-light uk-text-bold uk-margin-small-top uk-margin-small-bottom">
-            LOGIN
-          </button>
-
-          <button
-            (click)="onClickSignup()"
-            class="uk-button uk-button-default uk-light uk-text-bold uk-margin-small-top uk-margin-small-bottom">
-            SIGN UP
-          </button>
-        }
-
-        @if (loginService.login) {
-          <div class="uk-inline uk-margin-small-right">
-            <div class="uk-cover-container profile-icon uk-border-circle"
-                 uk-toggle="target: #dropdown-profil; mode: click">
-              <img alt="image_profil" src="/profil.png" uk-cover>
-            </div>
-            <div id="dropdown-profil" uk-dropdown="pos: bottom-right; offset: 10">
-              <ul class="uk-nav uk-dropdown-nav">
-                <li>
-                  <a (click)="onClickLogout()">
-                    <span uk-icon="icon: sign-out"></span> Log Out
-                  </a>
-                </li>
-                 <!--<li><a><span uk-icon="icon: user"></span> Mon Profil</a></li>-->
-                <li>
-                  <a (click)="onClickGoSettings()">
-                    <span uk-icon="icon: settings"></span> Paramètres
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div class="uk-flex uk-flex-column uk-flex-middle header-button-container">
+            <button
+              (click)="onClickLogin()"
+              class="uk-button header-auth-button uk-light uk-text-bold uk-margin-small-bottom">
+              LOGIN
+            </button>
+            <button
+              (click)="onClickSignup()"
+              class="uk-button header-auth-button uk-light uk-text-bold">
+              SIGN UP
+            </button>
           </div>
         }
 
+        @if (loginService.login) {
+          <div class="uk-inline uk-margin-small-right profile-container-wrapper">
+            <div class="profile-icon-container uk-border-circle uk-flex uk-flex-center uk-flex-middle uk-cover-container"
+                 uk-toggle="target: #dropdown-profil; mode: click"
+                 style="cursor: pointer;">
+              <span uk-icon="icon: user; ratio: 2.5" class="uk-light"></span>
+            </div>
 
+          </div>
+        }
       </div>
 
     </nav>
@@ -54,3 +41,43 @@
 </header>
 
 <router-outlet/>
+
+<footer class="app-footer uk-section uk-section-secondary uk-padding-remove-bottom">
+  <div class="uk-container">
+    <div class="uk-grid-large uk-flex-middle uk-margin-medium-top" uk-grid>
+
+      <div class="uk-width-expand@m uk-text-center uk-text-left@m uk-margin-bottom">
+        <p class="uk-text-small uk-text-muted">
+          Projet Angular par <br class="uk-visible@s">
+          <span class="uk-text-bold uk-text-emphasis">ALBERTEAU Théotim</span>
+        </p>
+      </div>
+
+      <div class="uk-width-auto@m uk-text-center uk-text-right@m uk-margin-bottom">
+        <ul class="uk-iconnav uk-flex-column uk-align-right uk-align-left@s uk-align-right@m">
+
+          <li>
+            <a href="https://github.com/TheotimALBERTEAU/projet_angular" target="_blank" class="uk-link-reset uk-text-small">
+              <span uk-icon="icon: github; ratio: 1.2" class="uk-margin-small-right"></span>
+              Lien GitHub du projet
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.linkedin.com/in/th%C3%A9otim-alberteau-303b38358/" target="_blank" class="uk-link-reset uk-text-small uk-margin-small-top">
+              <span uk-icon="icon: linkedin; ratio: 1.2" class="uk-margin-small-right"></span>
+              Profil LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <hr class="uk-margin-remove-top">
+
+    <div class="uk-text-center uk-padding-small uk-text-small uk-text-muted">
+      <p>© 2025 Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>

@@ -1,19 +1,51 @@
-<section>
+<div class="uk-container uk-margin-large-top uk-width-large@s uk-align-center uk-margin-large-bottom  uk-height-viewport">
+
   @if (details) {
-    <h2>{{details.title}}</h2>
-    <p>
-      Auteur : {{details.author}}
-    </p>
-    <p>
-      Description : {{details.desc}}
-    </p>
-    <p>
-      ID : {{details.id}}
-    </p>
-    <button (click)="onClickDeleteArticle(details.id)" class="uk-button uk-width-1-1 uk-card-hover">Delete Article</button>
-  } @else if (details.articleID) {
-    <p>details avec l'ID {{details.articleID}} introuvable.</p>
+
+    <div class="uk-card uk-card-default uk-card-hover uk-box-shadow-large uk-border-rounded">
+
+      @if (details.imgPath) {
+        <div class="uk-card-media-top uk-cover-container" style="height: 300px;">
+          <img [src]="details.imgPath" alt="Image de l'article" uk-cover>
+        </div>
+      }
+
+      <div class="uk-card-body">
+
+        <h2 class="uk-card-title uk-text-bold uk-margin-small-bottom">{{ details.title }}</h2>
+
+        <div class="uk-grid-small uk-child-width-auto" uk-grid>
+          <div>
+            <span class="uk-text-meta uk-margin-small-right" uk-icon="icon: user; ratio: 0.8"></span>
+            <span class="uk-text-meta">Auteur : <strong>{{ details.author }}</strong></span>
+          </div>
+          <div>
+            <span class="uk-text-meta uk-margin-small-right" uk-icon="icon: database; ratio: 0.8"></span>
+            <span class="uk-text-meta">ID : {{ details.id }}</span>
+          </div>
+        </div>
+
+        <hr class="uk-margin-medium-top uk-margin-small-bottom">
+
+        <h4 class="uk-text-bold uk-text-muted uk-margin-small-bottom">Description</h4>
+        <p class="uk-text-emphasis">{{ details.desc }}</p>
+
+      </div>
+
+      <div class="uk-card-footer uk-padding-small">
+        <button (click)="onClickDeleteArticle(details.id)" class="uk-button uk-button-danger uk-width-1-1">
+          <span uk-icon="icon: trash"></span> Supprimer l'Article
+        </button>
+      </div>
+    </div>
+
+  } @else if (details && details.articleID) {
+    <div class="uk-alert-warning" uk-alert>
+      <p><span uk-icon="icon: warning"></span> Détails de l'article avec l'ID {{details.articleID}} introuvable.</p>
+    </div>
   } @else {
-    <p>Chargement des détails de l'details...</p>
+    <p class="uk-text-center uk-text-muted">
+      <span uk-spinner></span> Chargement des détails de l'article...
+    </p>
   }
-</section>
+</div>

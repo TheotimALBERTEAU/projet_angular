@@ -1,7 +1,9 @@
-<section class="uk-section-default">
+<section class="uk-section-default uk-height-viewport">
 
   <div class="uk-section-default uk-padding-small">
-    <h3>Email : </h3>
+    <h3 class="uk-heading-line uk-text-center">
+      <span>Email :</span>
+    </h3>
     <div class="uk-inline uk-width-1-1">
       <input type="text" [value]="localStorage.getItem('userEmail')" class="uk-input" readonly>
       <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
@@ -9,12 +11,40 @@
   </div>
 
   <div class="uk-section-default uk-padding-small">
-    <h3>Password : </h3>
+    <h3 class="uk-heading-line uk-text-center">
+      <span>Password :</span>
+    </h3>
     <div class="uk-inline uk-width-1-1 uk-margin-small-bottom">
       <input [type]="inputType" [value]="localStorage.getItem('userPassword')" class="uk-input" readonly>
       <a (click)="togglePasswordVisibility()" class="uk-form-icon uk-form-icon-flip" [attr.uk-icon]="inputType === 'password' ? 'icon: eye-slash' : 'icon: eye'"></a>
     </div>
     <button (click)="onClickResetPassword()" class="uk-button uk-button-default uk-width-1-1">Reset Password</button>
+  </div>
+
+  <div class="uk-section-default uk-padding-small">
+    <h3 class="uk-heading-line uk-text-center">
+      <span>Pseudo : </span>
+    </h3>
+    <div class="uk-inline uk-width-1-1">
+      <input type="text" [value]="userInfo?.pseudo" class="uk-input" readonly>
+      <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: user"></span>
+    </div>
+  </div>
+
+  <div class="uk-section-default uk-padding-small">
+    <h3 class="uk-heading-line uk-text-center">
+      <span>Additionals Infos :</span>
+    </h3>
+    <div class="uk-width-1-1">
+      <div class="uk-inline uk-width-1-2">
+        <input type="text" [value]="userInfo?.city" class="uk-input" readonly>
+        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: location"></span>
+      </div>
+      <div class="uk-inline uk-width-1-2">
+        <input type="tel" [value]="userInfo?.phone" class="uk-input" readonly>
+        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: receiver"></span>
+      </div>
+    </div>
   </div>
 
 </section>
