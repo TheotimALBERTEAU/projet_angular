@@ -27,11 +27,23 @@
         @if (loginService.login) {
           <div class="uk-inline uk-margin-small-right profile-container-wrapper">
             <div class="profile-icon-container uk-border-circle uk-flex uk-flex-center uk-flex-middle uk-cover-container"
-                 uk-toggle="target: #dropdown-profil; mode: click"
-                 style="cursor: pointer;">
+                 uk-toggle="target: #dropdown-profil; mode: click">
               <span uk-icon="icon: user; ratio: 2.5" class="uk-light"></span>
             </div>
-
+            <div id="dropdown-profil" uk-dropdown="pos: bottom-right; offset: 10">
+              <ul class="uk-nav uk-dropdown-nav">
+                <li>
+                  <a (click)="onClickLogout()">
+                    <span uk-icon="icon: sign-out"></span> Log Out
+                  </a>
+                </li>
+                <li>
+                  <a (click)="onClickGoSettings()">
+                    <span uk-icon="icon: settings"></span> Paramètres
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         }
       </div>
