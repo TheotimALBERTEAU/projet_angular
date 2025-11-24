@@ -34,7 +34,7 @@ export class SettingsComponent {
       'Authorization': `Bearer ${token}` // Format requis par le back-end
     });
 
-    this.http.get('http://localhost:3000/infos-user', { headers: headers }).subscribe({
+    this.http.get(`${this.loginService.ApiUrl}/infos-user`, { headers: headers }).subscribe({
       next: (response : any) => {
         if (response.code == "200") {
           this.userInfo = response.data;

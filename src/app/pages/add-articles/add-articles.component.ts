@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {ArticlesDetailsServiceService} from '../../services/articles-details-service.service';
 
 @Component({
   selector: 'app-add-articles',
@@ -17,7 +18,8 @@ export class AddArticlesComponent {
   public author = '';
   public imgPath = '';
 
-  constructor(private http : HttpClient) {}
+  constructor(private http : HttpClient,
+              private articlesDetailsService: ArticlesDetailsServiceService) {}
 
   sendFormData() {
     const articleData = {
@@ -26,7 +28,7 @@ export class AddArticlesComponent {
       "author" : this.author,
       "imgPath" : this.imgPath,
     }
-    this.http.post('http://localhost:3000/articles/save', articleData).subscribe({
+    this.http.post(`${this.articlesDetailsService.ApiUrl}/save`, articleData).subscribe({
       next: () => {
         alert("Article ajouté avec succès");
       }

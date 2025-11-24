@@ -63,7 +63,7 @@ export class ModifyArticleComponent {
       articleData["author"] = this.author;
     }
 
-    this.http.post('http://localhost:3000/articles/save', articleData).subscribe({
+    this.http.post(`${this.articleService.ApiUrl}/articles/save`, articleData).subscribe({
       next: () => {
         alert("Article modifié avec succès");
       }

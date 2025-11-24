@@ -12,6 +12,8 @@ export class LoginServicesService {
     this.login = localStorage.getItem('isLoggedIn') === 'true';
   }
 
+  public ApiUrl = 'https://projet-angular-back-24h5.onrender.com'
+
   public login = false;
 
   public sendLogin(email : string, password : string) {
@@ -23,7 +25,7 @@ export class LoginServicesService {
     localStorage.setItem("userEmail", email);
     localStorage.setItem("userPassword", password);
 
-    this.http.post('http://localhost:3000/login', infos).subscribe({
+    this.http.post(`${this.ApiUrl}/login`, infos).subscribe({
       next: (response: any) => {
         if (response.code == "200") {
           alert("Login successfull");
@@ -39,7 +41,7 @@ export class LoginServicesService {
   }
 
   public sendSignup(infos : any) {
-    this.http.post('http://localhost:3000/signup', infos).subscribe({
+    this.http.post(`${this.ApiUrl}/signup`, infos).subscribe({
       next: (response: any) => {
         if (response.code == "200") {
           alert("Signup successfull");
@@ -64,7 +66,7 @@ export class LoginServicesService {
     }
     const confirmed = confirm("Voulez-vous vraiment réinitialiser votre mot de passe ?")
     if (confirmed) {
-      this.http.post('http://localhost:3000/reset-password', email).subscribe({
+      this.http.post(`${this.ApiUrl}/reset-password`, email).subscribe({
         next: (response: any) => {
           if (response.code == "200") {
             alert(response.message + "New password : " + response.data);

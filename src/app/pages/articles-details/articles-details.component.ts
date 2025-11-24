@@ -37,7 +37,7 @@ export class ArticlesDetailsComponent {
   }
 
   public onClickDeleteArticle(id: any) {
-    this.http.delete(`http://localhost:3000/articles/${id}`).subscribe({
+    this.http.delete(`${this.articlesDetailsService.ApiUrl}/articles/${id}`).subscribe({
       next: data => {
         alert(`Article effacé avec succès`);
         this.router.navigate(['/ListeArticles']);
