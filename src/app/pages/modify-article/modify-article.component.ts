@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ArticlesListServiceService} from '../../services/articles-list-service.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-modify-article',
@@ -19,7 +20,8 @@ export class ModifyArticleComponent {
   public imgPath = "";
 
   constructor(private articleService : ArticlesListServiceService,
-              private http : HttpClient,) {
+              private http : HttpClient,
+              private router: Router) {
   }
 
   public articles : any[] = []

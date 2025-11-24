@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ArticlesDetailsServiceService} from '../../services/articles-details-service.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-articles-details',
@@ -14,7 +15,8 @@ export class ArticlesDetailsComponent {
 
   constructor(private activatedRoute: ActivatedRoute,
               private articlesDetailsService: ArticlesDetailsServiceService,
-              private http : HttpClient) {
+              private http : HttpClient,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -38,7 +40,7 @@ export class ArticlesDetailsComponent {
     this.http.delete(`http://localhost:3000/articles/${id}`).subscribe({
       next: data => {
         alert(`Article effacé avec succès`);
-        window.open("http://localhost:4200/ListeArticles", "_self");
+        this.router.navigate(['/ListeArticles']);
       }
     })
 }

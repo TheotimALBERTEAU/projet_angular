@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ArticlesListServiceService} from '../../services/articles-list-service.service';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginServicesService} from '../../services/login-services.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-liste-articles',
@@ -16,7 +17,8 @@ export class ListeArticlesComponent {
   public ShowArticles: boolean = false;
 
   constructor(private articleService: ArticlesListServiceService,
-              private loginService: LoginServicesService) {
+              private loginService: LoginServicesService,
+              private router: Router,) {
   }
 
   public onClickArticlesList() {
@@ -36,7 +38,7 @@ export class ListeArticlesComponent {
 
   public onClickGoDetails(id: number) {
     if (this.loginService.login) {
-      window.open(`http://localhost:4200/ListeArticles/${id}`, "_self")
+      this.router.navigate([`/ListeArticles/${id}`])
     } else {
       alert("You are not logged in.");
     }
@@ -44,7 +46,7 @@ export class ListeArticlesComponent {
 
   public onClickAddArticles() {
     if (this.loginService.login) {
-      window.open("http://localhost:4200/AddArticles", "_self");
+      this.router.navigate([`/AddArticles`]);
     } else {
       alert("You are not logged in.");
     }
@@ -52,7 +54,7 @@ export class ListeArticlesComponent {
 
   public onClickModifyArticle() {
     if (this.loginService.login) {
-      window.open("http://localhost:4200/ModifyArticle", "_self");
+      this.router.navigate([`/ModifyArticles`]);
     } else {
       alert("You are not logged in.");
     }

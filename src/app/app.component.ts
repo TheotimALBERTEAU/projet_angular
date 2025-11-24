@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {LoginServicesService} from './services/login-services.service';
 import {HttpClientModule} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,19 +14,20 @@ import {HttpClientModule} from '@angular/common/http';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  constructor(public loginService : LoginServicesService) { }
+  constructor(public loginService : LoginServicesService,
+              public router : Router) { }
   title = 'projet_angular';
 
   public onClickGoList() {
-    window.open('http://localhost:4200/ListeArticles', '_self');
+    this.router.navigate([`/ListeArticles`]);
   }
 
   public onClickLogin() {
-    window.open('http://localhost:4200/Login', '_self');
+    this.router.navigate([`/Login`]);
   }
 
   public onClickSignup() {
-    window.open('http://localhost:4200/Signup', '_self');
+    this.router.navigate([`/Signup`]);
   }
 
   public onClickLogout() {
@@ -35,6 +37,6 @@ export class AppComponent {
   protected readonly localStorage = localStorage;
 
   public onClickGoSettings() {
-    window.open('http://localhost:4200/Settings', '_self');
+    this.router.navigate([`/Settings`]);
   }
 }

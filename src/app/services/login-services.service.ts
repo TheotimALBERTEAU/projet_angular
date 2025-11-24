@@ -27,7 +27,7 @@ export class LoginServicesService {
       next: (response: any) => {
         if (response.code == "200") {
           alert("Login successfull");
-          window.open("http://localhost:4200/ListeArticles", "_self");
+          this.router.navigate([`/ListeArticles`]);
           localStorage.setItem("isLoggedIn", "true");
           this.login = true;
           localStorage.setItem("token", response.data);
@@ -43,7 +43,7 @@ export class LoginServicesService {
       next: (response: any) => {
         if (response.code == "200") {
           alert("Signup successfull");
-          window.open("http://localhost:4200/Login", "_self");
+          this.router.navigate([`/Login`]);
         } else {
           alert(response.message);
         }
@@ -54,7 +54,7 @@ export class LoginServicesService {
   public logout() {
     localStorage.removeItem('isLoggedIn');
     this.login = false;
-    window.open("http://localhost:4200/ListeArticles", "_self");
+    this.router.navigate([`/ListeArticles`]);
     alert("Logout successfull");
   }
 
@@ -71,7 +71,7 @@ export class LoginServicesService {
             navigator.clipboard.writeText(response.data);
           }
           this.logout();
-          window.open("http://localhost:4200/Login", "_self");
+          this.router.navigate([`/Login`]);
         }
       })
     }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -11,9 +12,10 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 })
 export class MainPageComponent {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private router: Router) { }
 
   onClickGoList(): void {
-    window.open('http://localhost:4200/ListeArticles', "_self");
+    this.router.navigate(['/ListeArticles']);
   }
 }
