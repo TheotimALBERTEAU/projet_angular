@@ -32,8 +32,8 @@ export class LoginServicesService {
           localStorage.setItem("isLoggedIn", "true");
           this.login = true;
           localStorage.setItem("token", response.data);
-          window.location.reload();
           this.router.navigate([`/ListeArticles`]);
+          window.location.reload();
         } else {
           alert("Email/Password Invalid");
         }
