@@ -32,11 +32,11 @@ export class LoginServicesService {
           localStorage.setItem("isLoggedIn", "true");
           this.login = true;
           localStorage.setItem("token", response.data);
+          window.location.reload();
           this.router.navigate([`/ListeArticles`]);
         } else {
           alert("Email/Password Invalid");
         }
-        window.location.reload();
       }
     })
   }
@@ -57,9 +57,9 @@ export class LoginServicesService {
   public logout() {
     localStorage.removeItem('isLoggedIn');
     this.login = false;
+    window.location.reload();
     this.router.navigate([`/ListeArticles`]);
     alert("Logout successfull");
-    window.location.reload();
   }
 
   public resetPassword() {
@@ -75,8 +75,8 @@ export class LoginServicesService {
             navigator.clipboard.writeText(response.data);
           }
           this.logout();
-          this.router.navigate([`/Login`]);
           window.location.reload();
+          this.router.navigate([`/Login`]);
         }
       })
     }
