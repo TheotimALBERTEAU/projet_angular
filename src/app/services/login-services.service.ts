@@ -30,6 +30,7 @@ export class LoginServicesService {
         if (response.code == "200") {
           alert("Login successfull");
           this.router.navigate([`/ListeArticles`]);
+          window.location.reload();
           localStorage.setItem("isLoggedIn", "true");
           this.login = true;
           localStorage.setItem("token", response.data);
@@ -58,6 +59,7 @@ export class LoginServicesService {
     this.login = false;
     this.router.navigate([`/ListeArticles`]);
     alert("Logout successfull");
+    window.location.reload();
   }
 
   public resetPassword() {
@@ -74,6 +76,7 @@ export class LoginServicesService {
           }
           this.logout();
           this.router.navigate([`/Login`]);
+          window.location.reload();
         }
       })
     }
