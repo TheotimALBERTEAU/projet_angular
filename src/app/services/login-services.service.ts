@@ -29,11 +29,11 @@ export class LoginServicesService {
       next: (response: any) => {
         if (response.code == "200") {
           alert("Login successfull");
-          this.router.navigate([`/ListeArticles`]);
           localStorage.setItem("isLoggedIn", "true");
           this.login = true;
           localStorage.setItem("token", response.data);
           window.location.reload();
+          this.router.navigate([`/ListeArticles`]);
         } else {
           alert("Email/Password Invalid");
         }
