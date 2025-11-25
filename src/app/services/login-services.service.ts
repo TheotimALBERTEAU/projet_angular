@@ -36,6 +36,7 @@ export class LoginServicesService {
         } else {
           alert("Email/Password Invalid");
         }
+        window.location.reload();
       }
     })
   }
