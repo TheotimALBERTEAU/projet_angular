@@ -33,7 +33,6 @@ export class LoginServicesService {
           this.login = true;
           localStorage.setItem("token", response.data);
           this.router.navigate([`/ListeArticles`]);
-          window.location.reload();
         } else {
           alert("Email/Password Invalid");
         }
