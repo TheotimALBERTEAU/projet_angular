@@ -32,8 +32,11 @@ export class LoginServicesService {
           localStorage.setItem("isLoggedIn", "true");
           this.login = true;
           localStorage.setItem("token", response.data);
-          window.location.reload();
           this.router.navigate([`/ListeArticles`]);
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 50);
         } else {
           alert("Email/Password Invalid");
         }
@@ -57,9 +60,12 @@ export class LoginServicesService {
   public logout() {
     localStorage.removeItem('isLoggedIn');
     this.login = false;
-    window.location.reload();
     this.router.navigate([`/ListeArticles`]);
     alert("Logout successfull");
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
   }
 
   public resetPassword() {
@@ -75,8 +81,11 @@ export class LoginServicesService {
             navigator.clipboard.writeText(response.data);
           }
           this.logout();
-          window.location.reload();
           this.router.navigate([`/Login`]);
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 50);
         }
       })
     }
