@@ -65,11 +65,13 @@ export class ModifyArticleComponent {
 
     this.http.post(`${this.articleService.ApiUrl}/articles/save`, articleData).subscribe({
       next: () => {
+        this.router.navigate([`/ListeArticles`]);
         alert("Article modifié avec succès");
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 50);
         }
     })
-      setTimeout(() => {
-      window.location.reload();
-    }, 50);
   }
 }
