@@ -28,7 +28,7 @@ export class AddArticlesComponent {
       "author" : this.author,
       "imgPath" : this.imgPath,
     }
-    this.http.post(`${this.articlesDetailsService.ApiUrl}/save`, articleData).subscribe({
+    this.http.post(`${this.articlesDetailsService.ApiUrl}/articles/save`, articleData).subscribe({
       next: () => {
         alert("Article ajouté avec succès");
       }
