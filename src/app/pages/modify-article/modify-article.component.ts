@@ -65,7 +65,9 @@ export class ModifyArticleComponent {
 
     this.http.post(`${this.articleService.ApiUrl}/articles/save`, articleData).subscribe({
       next: () => {
-        alert("Article modifié avec succès");
+        setTimeout(() => {
+      window.location.reload();
+    }, 50);
       }
     })
     window.location.reload();
