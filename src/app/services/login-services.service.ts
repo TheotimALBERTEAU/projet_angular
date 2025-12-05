@@ -12,7 +12,7 @@ export class LoginServicesService {
     this.login = localStorage.getItem('isLoggedIn') === 'true';
   }
 
-  public ApiUrl = 'https://projet-angular-back-24h5.onrender.com'
+  public ApiUrl = 'https://projet-angular-back-24h5.onrender.com/'
 
   public login = false;
 
