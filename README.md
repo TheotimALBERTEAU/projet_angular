@@ -10,7 +10,7 @@ This repository holds the front-end application developed with **Angular**. It i
 
 The Front-end application is deployed for free on **Netlify** and is accessible at the following address:
 
-**Application URL:** [Projet_Angular](https://projet-angular-theotimalberteau.netlify.app)
+**Application URL:** [Projet_Angular](https://theotimalberteau.github.io/projet_angular/)
 
 ---
 
