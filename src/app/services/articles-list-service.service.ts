@@ -10,7 +10,7 @@ export class ArticlesListServiceService {
   constructor(private http: HttpClient) {
   }
 
-  public ApiUrl = 'http://localhost:3000'
+  public ApiUrl = 'https://projet-angular-back-24h5.onrender.com/'
 
   getArticles(): Observable<any> {
     return this.http.get<any>(`${this.ApiUrl}/articles`)
