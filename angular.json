@@ -42,6 +42,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/projet_angular/",
               "budgets": [
                 {
                   "type": "initial",
@@ -101,7 +102,13 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {},
+          "configurations": {
+            "production": {
+              "browserTarget": "projet_angular:build:production"
+            }
+          }
         }
       }
     }
