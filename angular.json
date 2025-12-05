@@ -33,9 +33,13 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/style.css",
+              "src/public/css/uikit.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/public/css/uikit.min.css",
+              "src/public/css/uikit-icons.min.css"
+            ]
           },
           "configurations": {
             "production": {
