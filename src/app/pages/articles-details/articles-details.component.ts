@@ -43,5 +43,5 @@ export class ArticlesDetailsComponent {
         this.router.navigate(['/ListeArticles']);
       }
     })
-}
+  }
 }
