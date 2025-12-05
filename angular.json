@@ -33,7 +33,6 @@
               }
             ],
             "styles": [
-              "src/style.css",
               "src/public/css/uikit.min.css"
             ],
             "scripts": [
